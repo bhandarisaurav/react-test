@@ -3,12 +3,15 @@
 read -p "Enter Commit Message  : " message
 echo "Message =  $message!"
 
+rm -rf build
 rm -rf docs
-ng build --prod --output-path docs --base-href /angulartest/
+yarn build
 git add src/*
-git add docs
+git add public/*
 git add docs/*
 git add deploy.sh
+git add package.json
+git add yarn.lock
 # shellcheck disable=SC2078
 if [ message ]; then
   git commit -m "$message"
