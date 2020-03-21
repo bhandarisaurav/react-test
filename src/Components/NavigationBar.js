@@ -12,8 +12,8 @@ class NavigationBar extends React.Component {
     render() {
         return (
             <Router>
-                <div className="container-fluid">
-                    <nav className="navbar navbar-dark navbar-expand bg-dark ">
+                <nav className="navbar navbar-dark navbar-expand bg-dark ">
+                    <div className="container-fluid">
                         <Link to="/" className="navbar-brand" href="#">Gallery</Link>
                         <button className="navbar-toggler" type="button"
                                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -41,10 +41,6 @@ class NavigationBar extends React.Component {
                                     <Link to="/api-call" className="nav-link">5000 Images</Link>
                                 </li>
 
-                                <li className="nav-item">
-                                    <Link to="/login" className="nav-link">Login</Link>
-                                </li>
-
                             </ul>
                             <div className="form-inline my-2 my-lg-0">
                                 <Link to="/login">
@@ -52,8 +48,8 @@ class NavigationBar extends React.Component {
                                 </Link>
                             </div>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
                 <Switch>
                     <Route path="/test">
                         <Test/>
