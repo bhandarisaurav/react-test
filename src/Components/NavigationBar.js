@@ -7,20 +7,20 @@ import Home from "./Home/Home";
 import Login from "./Login/Login";
 import {createBrowserHistory} from "history";
 
-import ReactGA from 'react-ga';
-
 const history = createBrowserHistory();
 history.listen(location => {
+    // eslint-disable-next-line no-undef
+    gtag('config', 'UA-103072673-3', {page_path: window.location.pathname});
     console.log("PATH", window.location.pathname);
-    ReactGA.set({page: location.pathname});
-    ReactGA.pageview(location.pathname);
 });
 
 
 export default class NavigationBar extends React.Component {
 
     componentDidMount() {
-        ReactGA.pageview(window.location.pathname);
+        // eslint-disable-next-line no-undef
+        gtag('config', 'UA-103072673-3', {page_path: window.location.pathname});
+        console.log("componentDidMount", window.location.pathname);
     }
 
     render() {
