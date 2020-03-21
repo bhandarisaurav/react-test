@@ -4,11 +4,9 @@ read -p "Enter Commit Message  : " message
 echo "Message =  $message!"
 
 rm -rf build
-rm -rf docs
-yarn build
+yarn deploy
 git add src/*
 git add public/*
-git add docs/*
 git add deploy.sh
 git add package.json
 git add yarn.lock
