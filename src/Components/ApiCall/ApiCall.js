@@ -13,9 +13,9 @@ class ApiCall extends React.Component {
         fetch("https://jsonplaceholder.typicode.com/photos").then(results => {
             return results.json();
         }).then(data => {
-                let pictures = data.map((pic) => {
+                let pictures = data.map((pic,i) => {
                     return (
-                        <div className="col-lg-3 col-md-4 col-6">
+                        <div className="col-lg-3 col-md-4 col-6" key={i}>
                             <span className="d-block mb-4 h-100">
                                 <img className="img-fluid img-thumbnail" src={pic.url} alt=""/>
                             </span>

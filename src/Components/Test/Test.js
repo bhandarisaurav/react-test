@@ -26,10 +26,9 @@ class Test extends React.Component {
         fetch("https://jsonplaceholder.typicode.com/posts").then(results => {
             return results.json();
         }).then(results => {
-            let userList = results.map((data) => {
-                console.log(data);
+            let userList = results.map((data, i) => {
                 return (
-                    <tr>
+                    <tr key={i}>
                         <td>{data.userId}</td>
                         <td>{data.title}</td>
                     </tr>
@@ -45,8 +44,8 @@ class Test extends React.Component {
             <React.Fragment>
                 <div className="container-fluid pl-5 pr-5 mt-4">
                     <ul className="row jumbotron font-weight-bold">
-                        {this.state.courses.map((course) => (
-                            <li className="col-md-3">{course}</li>
+                        {this.state.courses.map((course, i) => (
+                            <li key={i} className="col-md-3">{course}</li>
                         ))}
                     </ul>
 
@@ -60,8 +59,8 @@ class Test extends React.Component {
 
                         <tbody>
                         {
-                            this.state.students.map((student) => (
-                                <tr>
+                            this.state.students.map((student, i) => (
+                                <tr key={i}>
                                     <td>{student.id}</td>
                                     <td>{student.name}</td>
                                 </tr>

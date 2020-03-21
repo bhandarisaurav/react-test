@@ -1,17 +1,31 @@
 import React from "react";
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {Link, Route, Router, Switch} from "react-router-dom";
 import Test from "./Test/Test";
 import Gallery from "./Gallery/Gallery";
 import ApiCall from "./ApiCall/ApiCall";
 import Home from "./Home/Home";
 import Login from "./Login/Login";
+import {createBrowserHistory} from "history";
+
+import ReactGA from 'react-ga';
+
+const history = createBrowserHistory();
+history.listen(location => {
+    console.log("PATH", window.location.pathname);
+    ReactGA.set({page: location.pathname});
+    ReactGA.pageview(location.pathname);
+});
 
 
-class NavigationBar extends React.Component {
+export default class NavigationBar extends React.Component {
+
+    componentDidMount() {
+        ReactGA.pageview(window.location.pathname);
+    }
 
     render() {
         return (
-            <Router>
+            <Router history={history}>
                 <nav className="navbar navbar-dark navbar-expand bg-dark ">
                     <div className="container-fluid">
                         <Link to="/" className="navbar-brand" href="#">React Test</Link>
@@ -72,5 +86,3 @@ class NavigationBar extends React.Component {
         );
     }
 }
-
-export default NavigationBar;
