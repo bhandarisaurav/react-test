@@ -14,7 +14,7 @@ class NavigationBar extends React.Component {
             <Router>
                 <nav className="navbar navbar-dark navbar-expand bg-dark ">
                     <div className="container-fluid">
-                        <Link to="/" className="navbar-brand" href="#">Gallery</Link>
+                        <Link to="/" className="navbar-brand" href="#">React Test</Link>
                         <button className="navbar-toggler" type="button"
                                 aria-controls="navbarSupportedContent" aria-expanded="false"
                                 aria-label="Toggle navigation">
